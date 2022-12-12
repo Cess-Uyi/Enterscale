@@ -41,16 +41,16 @@ db.answer = require("./answer")(sequelize, DataTypes);
 /* DEFINING TABLE RELATIONSHIPS */
 
 // One-To-Many Relationship between User and Survey
-db.user.hasMany(db.survey);
-db.survey.belongsTo(db.user);
+db.user.hasMany(db.survey, { foreignKey: 'userId' });
+db.survey.belongsTo(db.user, { foreignKey: "userId" });
 
 // One-To-Many Relationship between Survey and Question
-db.survey.hasMany(db.question);
-db.question.belongsTo(db.survey);
+db.survey.hasMany(db.question, { foreignKey: "surveyId" });
+db.question.belongsTo(db.survey, { foreignKey: "surveyId" });
 
 // One-To-Many Relationship between Question and Answer
-db.question.hasMany(db.answer);
-db.answer.belongsTo(db.question);
+db.question.hasMany(db.answer, { foreignKey: "questionId" });
+db.answer.belongsTo(db.question, { foreignKey: "questionId" });
 
 
 module.exports = db;
