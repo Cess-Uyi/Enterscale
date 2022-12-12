@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       title: DataTypes.STRING,
+      url: DataTypes.STRING
     },
     {
       sequelize,

@@ -3,7 +3,6 @@ const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv").config();
 const routes = require("./routes/routes");
-const {sequelize} = require('./models')
 
 var corOptions = {
   origin: "https://localhost:3001",
